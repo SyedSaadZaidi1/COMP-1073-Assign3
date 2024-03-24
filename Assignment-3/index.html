@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Order a Pizza!</title>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />
+        <link rel="shortcut icon" href="images/pizza-slice.png" type="image/x-icon" />
+	</head>
+	<body>
+        <header>
+            <h1>Slice Symphony</h1>
+        </header>
+		<main>
+            <h2>Customize your pizza!</h2>
+            <form id="edit_payment_info" action="checkout.php" method="get">
+				
+               
+                <input type="hidden" name="form_sent" value="1" />
+
+                
+            <fieldset>
+                <legend>Customize your pizza however you'd like!</legend>
+					
+				
+				</br>
+
+                <fieldset>        
+                        <br>
+                        <figure>
+                        <img src="images/pizza.png" alt="pizza" width=80 height=80>
+                        </figure>
+                        <br>
+                        <label for="pizzas">Enter how many larges you'd like</label>
+                        <input type="number" name="bigpizza" id="bigpizza" size="25" maxlength="50" placeholder="# large of pizzas" required="required"/>
+                        <!--<img src="images/pizza.jpg" alt="pizzabig" width=120 height=120>-->
+                </fieldset>
+                <br>
+                 <fieldset>       
+                        <br>
+                        <figure>
+                        <img src="images/pizza.png" alt="pizza" width=60 height=60>
+                        </figure>
+                        <br>
+                        <label for="pizzas">Enter how many mediums you'd like</label>
+                        <input type="number" name="midpizza" id="midpizza" size="25" maxlength="50" placeholder="# medium of pizzas" required="required" />
+				</fieldset>
+                <br>	
+					
+                <fieldset>        
+                        <br>
+                        <figure>
+                        <img src="images/pizza.png" alt="pizza" width=40 height=40>
+                        </figure>
+                        <br>
+                        <label for="pizzas">Enter how many smalls you'd like</label>
+                        <input type="number" name="smolpizza" id="smolpizza" size="25" maxlength="50" placeholder="# small of pizzas" required="required" />
+				</fieldset>
+				<br>
+                <br>
+                <fieldset> 
+                        <!--<legend>Enter the shape of your pizzas</legend>       
+                        <input type="radio" name="shapepizza" id="square" value="square" selected>
+                        <label for="square">Square</label>
+                        <input type="radio" name="shapepizza" id="round" value="round" selected>
+                        <label for="round">Round</label>
+                        -->
+                        <form id="shapeForm" action="process.php" method="post">
+                            <fieldset>
+                                <legend>Enter the shape of your pizzas</legend>
+                                <input type="radio" name="shapepizza" id="square" value="square">
+                                <label for="square">Square</label>
+                        
+                                <input type="radio" name="shapepizza" id="round" value="round">
+                                <label for="round">Round</label>
+                            </fieldset>
+                            
+                        
+
+                </fieldset>
+                <br>
+                <br>
+					<div>
+						<label for="slice">Enter # of slices for large</label>
+						<input type="number" name="slicebig" id="slicebig" size="5" maxlength="10" placeholder="# of slices -> large" required="required"/>
+					</div>
+					<div>
+						<label for="slice">Enter # of slices for medium</label>
+						<input type="number" name="slicemid" id="slicemid" size="3" maxlength="7" placeholder="# of slices -> medium" required="required"/>
+					</div>
+					<div>
+						<label for="slice">Enter # of slices for small</label>
+						<input type="number" name="slicesmol" id="slicesmol" size="3" maxlength="5" placeholder="# of slices -> small" required="required"/>
+					</div>
+
+					<br>
+					
+					<fieldset>
+						<legend>Select your toppings!</legend>
+						<input type="checkbox" name="toppings[]" id="toppings1" value="tomato" />
+                        <img src="images/tomato-8bit.png" alt="tomato" width=30 height=30>
+						<label for="tomato">Tomato</label>
+                        <input type="checkbox" name="toppings[]" id="toppings2" value="chicken" />
+						<img src="images/chicken-8bit.png" alt="chicken" width=30 height=30>
+                        <label for="chicken">Chicken</label>
+						<input type="checkbox" name="toppings[]" id="toppings3" value="beef" />
+						<img src="images/beef-8bit.png" alt="beef" width=30 height=20>
+                        <label for="beef">Beef</label>
+                        <input type="checkbox" name="toppings[]" id="toppings4" value="bananpep" />
+                        <label for="bananpep">Banana Peppers</label>
+						<input type="checkbox" name="toppings[]" id="toppings5" value="jala" />
+                        <label for="jala">Jalapeno</label>
+                        <input type="checkbox" name="toppings[]" id="toppings6" value="sausage" />
+                        <label for="sausage">Sausage</label>
+                        <br>
+						<input type="checkbox" name="toppings[]" id="toppings7" value="greenpep" />
+                        <label for="greenpep">Green Peppers</label>
+                        <input type="checkbox" name="toppings[]" id="toppings8" value="blackol" />
+                        <label for="blackol">Black Olives</label>
+						<input type="checkbox" name="toppings[]" id="toppings9" value="ched" />
+                        <label for="ched">Cheddar Cheese</label>
+                        <input type="checkbox" name="toppings[]" id="toppings10" value="pinapp" />
+						<img src="images/pineapple-8bit.png" alt="pineapple" width=20 height=30>
+                        <label for="pinapp">Pineapple</label>
+					</fieldset>
+                    <br>
+                    <form id="crustForm" action="checkout.php" method="post" selected>
+					<div>
+                        <label for="crusttypes">Select type of crust</label>
+                        <select name="crusttype" id="crusttype">
+                            <option value="Def">Choose crust</option>
+							<option value="Crun">Cracker crust</option>
+                            <option value="Pan">Deep dish</option>
+                            <option value="Reg">Regular</option>
+                            <option value="Thin">Thin crust</option>
+                        </select>
+                    </div>
+					<br>
+					<div>
+                        <label for="fullName">Name</label>
+                        <input type="text" name="fullName" id="fullName" size="25" maxlength="50" placeholder="Enter Name" required="required" /> 
+                    </div>
+					<br>
+                    
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" />
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    
+
+                    <form id="recieveForm" action="process.php" method="post">
+                        <legend>How would you like to receive your pizza?</legend>
+                        <input type="radio" name="delivery_option" id="carryout" value="carryout">
+                        <label for="carryout">Pickup</label>
+                        <input type="radio" name="delivery_option" id="delivery" value="delivery">
+                        <label for="delivery">Delivery</label>
+
+					
+					<!--<input type="radio" name="recieve" id="carryout" value="carryout">
+					<label for="carryout">Pickup</label>
+					<input type="radio" name="recieve" id="delivery" value="delivery">
+					<label for="delivery">Delivery</label>-->
+					<div>
+					<br>
+                        <label for="address">Delivery Address</label>
+                        <input id="address" type="text" name="address" required />
+                    </div>
+					<br>                
+
+                        <label for="DelInstruct">Enter your Delivery Instructions</label>
+                        <textarea name="DelInstruct" id="DelInstruct" rows="5" cols="50">Type your delivery instructions here</textarea>
+                    </div>
+                <br>
+                </fieldset>
+
+                <div class="form-header">
+                    <h4 class="title">Credit card detail</h4>
+                  </div>
+                 
+                  <div class="form-body">
+                    <!-- Card Number -->
+                    <input type="text" class="card-number" placeholder="Card Number">
+                 
+                    <!-- Date Field -->
+                    <div class="date-field">
+                      <div class="month">
+                        <select name="Month">
+                          <option value="january">January</option>
+                          <option value="february">February</option>
+                          <option value="march">March</option>
+                          <option value="april">April</option>
+                          <option value="may">May</option>
+                          <option value="june">June</option>
+                          <option value="july">July</option>
+                          <option value="august">August</option>
+                          <option value="september">September</option>
+                          <option value="october">October</option>
+                          <option value="november">November</option>
+                          <option value="december">December</option>
+                        </select>
+                      </div>
+                      <div class="year">
+                        <select name="Year">
+                          <option value="2016">2016</option>
+                          <option value="2017">2017</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                        </select>
+                      </div>
+                    </div>
+                 
+                    <!-- Card Verification Field -->
+                    <div class="card-verification">
+                      <div class="cvv-input">
+                        <input type="text" placeholder="CVV">
+                      </div>
+                      <div class="cvv-details">
+                        <p>3 or 4 digits usually found <br> on the signature strip</p>
+                      </div>
+                    </div>
+                 
+                  </div>
+                  
+					<button type="Reset">Clear Form</button> <button type="submit">Save Settings</button>
+                </form>
+                </form>
+              </form>    
+            </form>
+        </main>
+        <footer>
+            <p><small>©Slice Symphony Ltd. All rights reserved</small></p>
+        </footer>
+	</body>
+</html>
+
+
+
